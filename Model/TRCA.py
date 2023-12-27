@@ -86,7 +86,6 @@ class TRCA():
             fb_coefs = [math.pow(i, -1.25) + 0.25 for i in range(1, self.Nm + 1)]
         fb_coefs = np.array(fb_coefs)
         results = np.zeros((self.Nf, num_trials))
-        rho_list = np.zeros((self.Nf, self.Nf))
 
         for targ_i in range(self.Nf):
             test_tmp = eeg[targ_i, :, :, :, :]
