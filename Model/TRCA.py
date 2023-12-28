@@ -78,7 +78,7 @@ class TRCA():
         W, V = scipy.sparse.linalg.eigs(S, 6, Q)
         return V
 
-    def test_trca(self, eeg, trains, W, is_ensemble):
+    def test_trca(self, eeg, trains, W):
         num_trials = eeg.shape[4]
         if self.Nm == 1:
             fb_coefs = [i for i in range(1, self.Nm + 1)]
@@ -96,7 +96,7 @@ class TRCA():
 
                 for class_i in range(self.Nf):
                     traindata = trains[class_i, fb_i, :, :]
-                    if not is_ensemble:
+                    if not self.is_ensemble:
                         w = W[fb_i, class_i, :]
                     else:
                         w = W[fb_i, :, :].T
