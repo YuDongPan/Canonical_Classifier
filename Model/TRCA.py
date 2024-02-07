@@ -133,7 +133,7 @@ class TRCA():
 
         # Test stage
         # print(testdata.shape)
-        estimated = self.test_trca(self.test_data, trains, W, self.is_ensemble)
+        estimated = self.test_trca(self.test_data, trains, W)
 
         # Evaluation
         is_correct = (estimated == self.test_label)
