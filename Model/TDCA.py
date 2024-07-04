@@ -332,7 +332,7 @@ def tdca_feature(X, templates, W, M, Ps, lagging_len, n_components, training=Fal
 
 
 class TDCA(BaseEstimator, TransformerMixin, ClassifierMixin):
-    def __init__(self, opt):
+    def __init__(self, opt, targets):
         self.opt = opt
         self.Fs = opt.Fs
         self.T = int(self.Fs * opt.ws)
@@ -342,6 +342,11 @@ class TDCA(BaseEstimator, TransformerMixin, ClassifierMixin):
         self.dataset = self.opt.dataset
         self.lagging_len = self.opt.lagging_len
         self.n_components = self.opt.n_components
+        self.targets = targets
+
+        self.classes_ = np.arange(self.Nf)
+        Yf = self.get_Yf(num_harmonics=3, targets=targets)
+        self.Ps = [proj_ref(Yf[i]) for i in range(len(self.classes_))]
 
 
     def get_Yf(self, num_harmonics, targets):
@@ -389,18 +394,15 @@ class TDCA(BaseEstimator, TransformerMixin, ClassifierMixin):
 
         return FB_X
 
-    def fit(self, X, y, Yf):
+    def fit(self, X, y):
         '''
         Parameters
         ----------
         X: Input EEG signals (n_trials, n_channels, n_points)
         y: Input labels (n_trials,)
-        Yf: Sin-Cosine reference signals (n_freq, 2 * num_harmonics, n_points)
         Returns
         -------
         '''
-        self.classes_ = np.unique(y)
-        self.Ps = [proj_ref(Yf[i]) for i in range(len(self.classes_))]
 
         self.W, self.M, self.templates = [], [], []
 

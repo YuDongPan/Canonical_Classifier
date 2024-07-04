@@ -61,9 +61,8 @@ for fold_num in range(opt.Kf):
 
         targets = [9.25, 11.25, 13.25, 9.75, 11.75, 13.75,
                    10.25, 12.25, 14.25, 10.75, 12.75, 14.75]
-        tdca = TDCA.TDCA(opt)
-        Y_f = tdca.get_Yf(num_harmonics=3, targets=targets)
-        tdca.fit(eeg_train, label_train, Y_f)
+        tdca = TDCA.TDCA(opt, targets)
+        tdca.fit(eeg_train, label_train)
         test_acc = tdca.predict(pad_eeg_test, label_test)
 
         print(f'Subject: {subject}, test_acc:{test_acc:.3f}')
