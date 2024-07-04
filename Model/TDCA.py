@@ -454,7 +454,7 @@ class TDCA(BaseEstimator, TransformerMixin, ClassifierMixin):
         Parameters
         ----------
         X: Input EEG signals (n_trials, n_channels, n_points)
-        y: Input EEG labels
+        y: Input EEG labels (n_trials, )
         Returns: test_acc (n_trials, )
         -------
         '''
