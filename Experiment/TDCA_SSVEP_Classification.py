@@ -58,6 +58,7 @@ for fold_num in range(opt.Kf):
         pad_eeg_test = np.zeros((*eeg_test.shape[:2], int((opt.ws + 0.1) * opt.Fs)))
         pad_eeg_test[:, :, :int(opt.ws * opt.Fs)] = eeg_test
 
+
         targets = [9.25, 11.25, 13.25, 9.75, 11.75, 13.75,
                    10.25, 12.25, 14.25, 10.75, 12.75, 14.75]
         tdca = TDCA.TDCA(opt, targets)
