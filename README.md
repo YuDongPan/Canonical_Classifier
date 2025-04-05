@@ -1,5 +1,16 @@
 # Introduction
-This repository is provided for replicating the canonical recognition methods of SSVEP signals. The replicated methods include CCA [1], MSI [2], FBCCA [3], TRCA [4], and TDCA [5]. 
+This repository is provided for replicating the canonical recognition methods of SSVEP signals. The replicated methods include:
+
+- <a href="https://blog.csdn.net/weixin_43715601/article/details/120567547">CCA (Canonical Correlation Analysis)</a> [1] 
+
+- <a href="https://blog.csdn.net/weixin_43715601/article/details/130019520">MSI (Multivariate Synchronization Index)</a> [2]
+
+- <a href="https://blog.csdn.net/weixin_43715601/article/details/120576642">FBCCA (Filter Bank Canonical Correlation Analysis)</a> [3]
+
+- <a href="https://blog.csdn.net/weixin_43715601/article/details/120575420 ">TRCA (Task-Related Component Analysis)</a> [4]
+
+- <a href="https://blog.csdn.net/weixin_43715601/article/details/144363774">TDCA (Task-Discriminant Component Analysis)</a> [5]
+
 The file distribution follow the code desgin of <a href="https://github.com/YuDongPan/SSVEPNet">SSVEPNet</a> [6]. And a 12-class public dataset [7] was used to conduct evaluation.
 
 
